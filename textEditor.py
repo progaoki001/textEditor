@@ -1,13 +1,17 @@
+
+from tkinter import filedialog
 import tkinter as tk
 
 
-def open_file():
-    print('open')
-
+def road_file():
+    print("open")
 
 def save_file():
     text_data = text_box.get('1.0', 'end -1c')
+    root.filename = filedialog.asksaveasfilename(initialdir="~/", title="Save as", filetypes=[("text file", "*.txt")])
     print(text_data)
+    with open(root.filename, 'w') as f:
+        f.write(text_data)
 
 
 # main window
@@ -22,7 +26,7 @@ root.config(menu=menu_bar)
 file_menu = tk.Menu(menu_bar)
 menu_bar.add_cascade(label='file', menu=file_menu)
 # メニューに操作を追加（open & save）
-file_menu.add_command(label='open', command=open_file)
+file_menu.add_command(label='road', command=road_file)
 file_menu.add_command(label='save', command=save_file)
 # label
 label = tk.Label(root, text='Text Box')
@@ -33,4 +37,4 @@ text_box.pack(padx=10, pady=10)
 
 root.mainloop()
 
-#  gitHub test01
+# orio PC test01
