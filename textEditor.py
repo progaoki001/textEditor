@@ -6,6 +6,9 @@ def road_file():
     text_box.delete("1.0", "end")
     ret = tk.filedialog.askopenfilename(initialdir="~/", title="road file")
     print(ret)
+    with open(ret) as f:
+        road_data = f.read()
+        print(road_data)
 
 
 def save_file():
