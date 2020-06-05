@@ -1,10 +1,12 @@
-
 from tkinter import filedialog
 import tkinter as tk
 
 
 def road_file():
-    print("open")
+    text_box.delete("1.0", "end")
+    ret = tk.filedialog.askopenfilename(initialdir="~/", title="road file")
+    print(ret)
+
 
 def save_file():
     text_data = text_box.get('1.0', 'end -1c')
@@ -36,5 +38,3 @@ text_box = tk.Text(root)
 text_box.pack(padx=10, pady=10)
 
 root.mainloop()
-
-# orio PC test01
